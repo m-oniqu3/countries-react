@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Loading from "../utility/Loading";
 
 const CountriesList = ({ listOfCountries }) => {
   console.log(listOfCountries);
@@ -12,7 +13,7 @@ const CountriesList = ({ listOfCountries }) => {
   return (
     <div>
       {/* shows the data when it is ready */}
-      {load ? <p>loading..</p> : <p>got the data</p>}
+      {load ? <Loading /> : <p>got the data</p>}
     </div>
   );
 };
