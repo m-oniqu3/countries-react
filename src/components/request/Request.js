@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 
 const Request = ({ sendResults }) => {
   const [countries, setCountries] = useState([]);
-
   const url = "https://restcountries.com/v3.1/all";
 
+  //* async funtion to the fetch all the countries from the url
   useEffect(() => {
     const getCountries = async () => {
       try {
@@ -19,8 +19,9 @@ const Request = ({ sendResults }) => {
     getCountries();
   }, []);
 
+  //* if countries has data then send it to the app component
   useEffect(() => {
-    if (countries) {
+    if (countries.length !== 0) {
       sendResults(countries);
     }
   }, [countries, sendResults]);

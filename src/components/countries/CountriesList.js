@@ -4,14 +4,17 @@ const CountriesList = ({ listOfCountries }) => {
   console.log(listOfCountries);
   const [load, setLoad] = useState(false);
 
+  //decides if the component has gotten the data yet
   useEffect(() => {
-    if (listOfCountries.length === 0) {
-      setLoad(true);
-    } else {
-      setLoad(false);
-    }
+    listOfCountries.length === 0 ? setLoad(true) : setLoad(false);
   }, [listOfCountries]);
-  return <div>{load ? <p>loading..</p> : <p>got the data</p>}</div>;
+
+  return (
+    <div>
+      {/* shows the data when it is ready */}
+      {load ? <p>loading..</p> : <p>got the data</p>}
+    </div>
+  );
 };
 
 export default CountriesList;
