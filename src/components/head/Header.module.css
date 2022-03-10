@@ -1,9 +1,10 @@
 .question {
   font-size: 1rem;
   font-weight: 800;
+  margin: 0;
 }
 
-header {
+.headerWrap {
   padding: 2rem 1.5rem;
   /* box-shadow: 0 8px 6px -6px black; */
   box-shadow: rgba(33, 35, 38, 0.301) 0px 10px 10px -10px;

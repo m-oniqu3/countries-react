@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../utility/Loading";
+import Country from "./Country";
 
 const CountriesList = ({ listOfCountries }) => {
-  console.log(listOfCountries);
   const [load, setLoad] = useState(false);
 
   //decides if the component has gotten the data yet
@@ -11,9 +11,9 @@ const CountriesList = ({ listOfCountries }) => {
   }, [listOfCountries]);
 
   return (
-    <div>
+    <div className="mt-3">
       {/* shows the data when it is ready */}
-      {load ? <Loading /> : <p>got the data</p>}
+      {load ? <Loading /> : <Country countries={listOfCountries} />}
     </div>
   );
 };

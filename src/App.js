@@ -12,14 +12,16 @@ function App() {
   const sendResults = (data) => setCountryList(data);
 
   return (
-    <div>
+    <section>
       <Header />
-      {/* send the fetched data to the app component */}
-      <Request sendResults={sendResults} />
+      <section className="container">
+        {/* send the fetched data to the app component */}
+        <Request sendResults={sendResults} />
 
-      {/* accepts the data from the app component */}
-      <CountriesList listOfCountries={countryList} />
-    </div>
+        {/* accepts the data from the app component */}
+        <CountriesList listOfCountries={countryList} />
+      </section>
+    </section>
   );
 }
 
