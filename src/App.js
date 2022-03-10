@@ -7,12 +7,12 @@ import Request from "./components/request/Request";
 function App() {
   const [countryList, setCountryList] = useState([]);
 
-  const sendResults = (data) => {};
+  const sendResults = (data) => setCountryList(data);
   return (
     <div>
       <Header />
       <Request sendResults={sendResults} />
-      <CountriesList />
+      <CountriesList listOfCountries={countryList} />
     </div>
   );
 }
