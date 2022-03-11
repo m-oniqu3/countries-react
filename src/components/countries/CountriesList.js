@@ -13,7 +13,13 @@ const CountriesList = ({ listOfCountries }) => {
   return (
     <div className="mt-3">
       {/* shows the data when it is ready */}
-      {load ? <Loading /> : <Country countries={listOfCountries} />}
+      {load ? (
+        <Loading />
+      ) : (
+        <section>
+          <Country countries={listOfCountries} />
+        </section>
+      )}
     </div>
   );
 };

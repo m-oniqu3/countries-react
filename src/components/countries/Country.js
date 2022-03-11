@@ -8,6 +8,8 @@ const Country = ({ countries }) => {
   //TODO reduce load time
   //TODO select random countries of the size above
 
+  //TODO change the colour of the p tags
+  //TODO format the population
   const countryDetails = countries
     .slice(0, size)
     .map(({ flags, name, capital, population, region }) => (
@@ -27,14 +29,14 @@ const Country = ({ countries }) => {
             {region}
           </p>
           <p>
-            <span className={styled.capital}>Capital:</span>
+            <span className={styled.capital}>Capital: </span>
             {capital}
           </p>
         </section>
       </article>
     ));
 
-  return <div>{countryDetails}</div>;
+  return <section className={styled.countriesGrid}>{countryDetails}</section>;
 };
 
 export default Country;

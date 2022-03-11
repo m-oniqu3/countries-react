@@ -1,0 +1,10 @@
+/* .countriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1fr, 4fr));
+} */
+
+/* @media (min-width:768px) {
+    .countriesGrid{
+        grid-template-columns: repeat(2);
+    }
+} */
