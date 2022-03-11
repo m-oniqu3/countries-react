@@ -5,7 +5,7 @@ const Dropdown = () => {
   return (
     <section className={styled.dropdown}>
       <select className={styled.menu}>
-        <option selected hidden>
+        <option value={" Filter by Region"} hidden>
           Filter by Region
         </option>
         <option value="Africa">Africa</option>

@@ -8,18 +8,23 @@ import Request from "./components/request/Request";
 function App() {
   //State
   const [countryList, setCountryList] = useState([]);
+  const [search, setSearch] = useState("");
 
   //Sets the state with the data received from the request component
   const sendResults = (data) => setCountryList(data);
+
+  const sendSearchTerm = (term) => {
+    setSearch(term);
+  };
 
   return (
     <section>
       <Header />
       <section className="container">
-        <Input />
+        <Input sendSearchTerm={sendSearchTerm} />
 
         {/* send the fetched data to the app component */}
-        <Request sendResults={sendResults} />
+        <Request sendResults={sendResults} search={search} />
 
         {/* accepts the data from the app component */}
         <CountriesList listOfCountries={countryList} />
