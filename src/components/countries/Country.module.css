@@ -2,10 +2,18 @@
   --radius: 5px;
 }
 
+.countriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 280px));
+  gap: 3rem;
+  margin: 2rem auto;
+  justify-content: center;
+}
+
 .article {
   border-radius: var(--radius);
-  margin: 2rem auto;
-  width: 75%;
+  /* margin: 2rem auto; */
+  width: 100%;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 }
 
