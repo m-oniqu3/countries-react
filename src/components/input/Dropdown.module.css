@@ -1,0 +1,27 @@
+.menu {
+  padding: 1rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  width: 50%;
+}
+
+/* select {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown::after {
+  content: "▼";
+  left: 180px;
+  top: 30px;
+  position: absolute;
+}
+.menu {
+  width: 50%;
+} */
