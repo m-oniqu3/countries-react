@@ -22,21 +22,20 @@ function App() {
 
   return (
     <section>
+      <Header />
+      {/**send the fetched data to the app component
+       * accept the search term from the app component
+       */}
+      <Request sendResults={sendResults} search={search} />
       <Routes>
         <Route
           path="/"
           exact
           element={
             <>
-              <Header />
               <section className="container">
                 {/* send the search term it got from the search component to the app component */}
                 <Input sendSearchTerm={sendSearchTerm} />
-
-                {/**send the fetched data to the app component
-                 * accept the search term from the app component
-                 */}
-                <Request sendResults={sendResults} search={search} />
 
                 {/* accepts the data from the app component */}
                 <CountriesList listOfCountries={countryList} />
@@ -45,7 +44,11 @@ function App() {
           }
         />
 
-        <Route path="/details" exact element={<Details />} />
+        <Route
+          path="/details/:countryName"
+          exact
+          element={<Details countries={countryList} />}
+        />
       </Routes>
     </section>
   );

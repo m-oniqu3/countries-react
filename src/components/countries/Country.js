@@ -5,6 +5,13 @@ import { useNavigate } from "react-router-dom";
 const Country = ({ countries }) => {
   const navigate = useNavigate();
 
+  /**
+   * navigating to the details page for the country the user clicked on
+   */
+  const moreInfo = (name) => {
+    navigate(`details/${name.official}`);
+  };
+
   let size = 30;
   const nf = new Intl.NumberFormat("en-US");
 
@@ -20,9 +27,7 @@ const Country = ({ countries }) => {
         <article
           key={name.official}
           className={styled.article}
-          onClick={() => {
-            navigate("details");
-          }}
+          onClick={() => moreInfo(name)}
         >
           <section className={styled.flag}>
             <img src={flags.png} alt="flag" />
