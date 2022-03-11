@@ -3,6 +3,7 @@ import styled from "./Country.module.css";
 
 const Country = ({ countries }) => {
   let size = 30;
+  const nf = new Intl.NumberFormat("en-US");
 
   //TODO reduce load time
 
@@ -27,7 +28,7 @@ const Country = ({ countries }) => {
             <h3 className={styled.name}>{name.official}</h3>
             <p>
               <span className={styled.population}>Population: </span>
-              {population}
+              {nf.format(`${Number(population)}`)}
             </p>
             <p>
               <span className={styled.region}>Region: </span>
