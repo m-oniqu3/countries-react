@@ -47,3 +47,16 @@
 p {
   margin-bottom: 5px;
 }
+
+.empty {
+  text-align: center;
+  color: red;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.empty h1 {
+  font-weight: 800;
+}

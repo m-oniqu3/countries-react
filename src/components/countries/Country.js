@@ -2,14 +2,17 @@ import React from "react";
 import styled from "./Country.module.css";
 
 const Country = ({ countries }) => {
-  // console.log(countries);
-  let size = 20;
+  let size = 30;
 
   //TODO reduce load time
-  //TODO select random countries of the size above
 
   //TODO change the colour of the p tags
   //TODO format the population
+
+  /**
+   * maps over the array and return a card with details about each country
+   * if not country if found, inform the user
+   */
   let countryDetails = [];
   if (countries.status !== 404) {
     countryDetails = countries
@@ -38,7 +41,13 @@ const Country = ({ countries }) => {
         </article>
       ));
   } else {
-    return <div>No country found</div>;
+    return (
+      <h3 className={styled.empty}>
+        <h1>Oops!</h1>
+        Sorry! We couldn't find a country by that name. Maybe try searching for
+        something else.
+      </h3>
+    );
   }
 
   return <section className={styled.countriesGrid}>{countryDetails}</section>;
