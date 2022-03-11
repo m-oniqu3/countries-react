@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import CountriesList from "./components/countries/CountriesList";
 import Header from "./components/head/Header";
+import Input from "./components/input/Input";
 import Request from "./components/request/Request";
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
     <section>
       <Header />
       <section className="container">
+        <Input />
+
         {/* send the fetched data to the app component */}
         <Request sendResults={sendResults} />
 
