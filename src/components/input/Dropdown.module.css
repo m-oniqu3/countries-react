@@ -8,6 +8,12 @@
   width: 50%;
 }
 
+@media (min-width: 768px) {
+  .menu {
+    width: 100%;
+  }
+}
+
 /* select {
   -webkit-appearance: none;
   appearance: none;

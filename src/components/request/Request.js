@@ -36,7 +36,7 @@ const Request = ({ sendResults, search }) => {
 
   /**
    * function to fetch data with the user's search input
-   * called the function after 600ms if the input is not empty
+   * called the function after 500ms if the input is not empty
    * used the timer to reduce the number of requests
    * clear the timer in cleanup
    */
@@ -53,7 +53,7 @@ const Request = ({ sendResults, search }) => {
 
     const timer = setTimeout(() => {
       search !== "" && getPlace();
-    }, 600);
+    }, 500);
 
     return () => {
       clearTimeout(timer);

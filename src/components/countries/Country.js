@@ -12,7 +12,7 @@ const Country = ({ countries }) => {
 
   /**
    * maps over the array and return a card with details about each country
-   * if not country if found, inform the user
+   * if no country is found, inform the user
    */
   let countryDetails = [];
   if (countries.status !== 404) {

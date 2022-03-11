@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "./Input.module.css";
 import Dropdown from "./Dropdown";
 import Search from "./Search";
 
@@ -13,7 +14,7 @@ const Input = ({ sendSearchTerm }) => {
   };
 
   return (
-    <section className="my-4">
+    <section className={styled.wrapper}>
       {/* props to send the term to the parent component */}
       <Search searchTerm={getInput} />
       <Dropdown />
