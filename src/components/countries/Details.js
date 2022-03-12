@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "./Details.module.css";
 import { useNavigate, useParams } from "react-router-dom";
+import Facts from "./Facts";
 
 const Details = ({ countries }) => {
   const { countryName } = useParams();
@@ -16,6 +17,10 @@ const Details = ({ countries }) => {
   }
 
   //TODO make component smaller
+  //TODO put the details with the span in its own component
+  //TODO add comments, format populations
+  //TODO make responsive
+  //TODO add shadow to flag img
   const nationDetails = nation.map((country) => {
     for (let x of Object.values(country.languages)) {
       lang += x + " ";
@@ -37,48 +42,23 @@ const Details = ({ countries }) => {
           </figure>
           <section className={styled.info}>
             <h3>{country.name.official}</h3>
-
             <div className={styled.details}>
-              <p>
-                <span>Native Name: </span>
-                {country.name.common}
-              </p>
-              <p>
-                <span>Population: </span>
-                {country.population}
-              </p>
-              <p>
-                <span>Region: </span>
-                {country.region}
-              </p>
-              <p>
-                <span>Sub Region: </span>
-                {country.subregion}
-              </p>
-              <p>
-                <span>Capital: </span>
-                {country.capital}
-              </p>
+              <Facts title="Native Name" data={country.name.common} />
+              <Facts title="Population" data={country.population} />
+              <Facts title="Region" data={country.region} />
+              <Facts title="Sub Region" data={country.subregion} />
+              <Facts title="Capital" data={country.capital} />
             </div>
 
             <div className={styled.details}>
-              <p>
-                <span>Top Level Domain: </span>
-                {country.tld}
-              </p>
-              <p>
-                <span>Currencies: </span>
-                {money}
-              </p>
-              <p>
-                <span>Languages: </span>
-                {lang}
-              </p>
+              <Facts title="Top Level Domain" data={country.tld} />
+              <Facts title="Currencies" data={money} />
+              <Facts title="Languages" data={lang} />
             </div>
 
             <>
               <h5 className={styled.borders}>Border Countries:</h5>
-              <div>
+              <>
                 {country.borders ? (
                   country.borders.map((border) => {
                     return (
@@ -88,7 +68,7 @@ const Details = ({ countries }) => {
                 ) : (
                   <p> None known.</p>
                 )}
-              </div>
+              </>
             </>
           </section>
         </article>
@@ -96,7 +76,9 @@ const Details = ({ countries }) => {
     );
   });
   return (
-    <section className="container">{nation !== [] && nationDetails}</section>
+    <section className="container my-5">
+      {nation !== [] && nationDetails}
+    </section>
   );
 };
 

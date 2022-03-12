@@ -1,0 +1,8 @@
+.title {
+  font-weight: 600;
+  color: black;
+}
+
+.data {
+  color: hsl(0, 0%, 52%);
+}

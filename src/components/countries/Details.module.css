@@ -3,14 +3,6 @@
   width: 90%;
 }
 
-.info {
-  font-size: 0.875rem;
-}
-
-.info span {
-  font-weight: 600;
-}
-
 .details {
   margin: 1rem 0;
 }
@@ -25,7 +17,6 @@ button {
   border: none;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-
   cursor: pointer;
 }
 
