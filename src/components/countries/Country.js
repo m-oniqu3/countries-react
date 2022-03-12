@@ -1,13 +1,12 @@
 import React from "react";
 import styled from "./Country.module.css";
 import { useNavigate } from "react-router-dom";
+import Facts from "./Facts";
 
 const Country = ({ countries }) => {
   const navigate = useNavigate();
 
-  /**
-   * navigating to the details page for the country the user clicked on
-   */
+  /** navigating to the details page for the country the user clicked on  */
   const moreInfo = (name) => {
     navigate(`details/${name.official}`);
   };
@@ -29,24 +28,20 @@ const Country = ({ countries }) => {
           className={styled.article}
           onClick={() => moreInfo(name)}
         >
-          <section className={styled.flag}>
+          <figure className={styled.flag}>
             <img src={flags.png} alt="flag" />
-          </section>
+          </figure>
 
           <section className={styled.details}>
-            <h3 className={styled.name}>{name.official}</h3>
-            <p>
-              <span className={styled.population}>Population: </span>
-              {nf.format(`${Number(population)}`)}
-            </p>
-            <p>
-              <span className={styled.region}>Region: </span>
-              {region}
-            </p>
-            <p>
-              <span className={styled.capital}>Capital: </span>
-              {capital}
-            </p>
+            <div className={styled.countrytitle}>
+              <Facts className={styled.title} title={name.official} />
+            </div>
+            <Facts
+              title="Population: "
+              data={nf.format(`${Number(population)}`)}
+            />
+            <Facts title="Region: " data={region} />
+            <Facts title="Capital: " data={capital} />
           </section>
         </article>
       ));

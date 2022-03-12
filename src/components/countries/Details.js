@@ -6,6 +6,7 @@ import Facts from "./Facts";
 const Details = ({ countries }) => {
   const { countryName } = useParams();
   const navigate = useNavigate();
+  const nf = new Intl.NumberFormat("en-US");
   let nation = [];
   let lang = "";
   let money = "";
@@ -15,8 +16,6 @@ const Details = ({ countries }) => {
       nation.push(place);
     }
   }
-
-  //TODO make component smaller
   //TODO put the details with the span in its own component
   //TODO add comments, format populations
   //TODO make responsive
@@ -43,17 +42,20 @@ const Details = ({ countries }) => {
           <section className={styled.info}>
             <h3>{country.name.official}</h3>
             <div className={styled.details}>
-              <Facts title="Native Name" data={country.name.common} />
-              <Facts title="Population" data={country.population} />
-              <Facts title="Region" data={country.region} />
-              <Facts title="Sub Region" data={country.subregion} />
-              <Facts title="Capital" data={country.capital} />
+              <Facts title="Native Name: " data={country.name.common} />
+              <Facts
+                title="Population: "
+                data={nf.format(`${Number(country.population)}`)}
+              />
+              <Facts title="Region: " data={country.region} />
+              <Facts title="Sub Region: " data={country.subregion} />
+              <Facts title="Capital: " data={country.capital} />
             </div>
 
             <div className={styled.details}>
-              <Facts title="Top Level Domain" data={country.tld} />
-              <Facts title="Currencies" data={money} />
-              <Facts title="Languages" data={lang} />
+              <Facts title="Top Level Domain: " data={country.tld} />
+              <Facts title="Currencies: " data={money} />
+              <Facts title="Languages: " data={lang} />
             </div>
 
             <>

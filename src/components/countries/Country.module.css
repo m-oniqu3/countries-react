@@ -32,16 +32,13 @@
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
-.name {
-  font-weight: 800;
-  font-size: 1rem;
+.countrytitle {
   padding-bottom: 0.5rem;
 }
 
-.population,
-.region,
-.capital {
-  font-weight: 600;
+.title {
+  font-size: 1rem;
+  font-weight: 800;
 }
 
 p {
