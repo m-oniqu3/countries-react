@@ -11,7 +11,6 @@ const Country = ({ countries }) => {
     navigate(`details/${name.official}`);
   };
 
-  let size = 30;
   const nf = new Intl.NumberFormat("en-US");
 
   /**
@@ -20,9 +19,8 @@ const Country = ({ countries }) => {
    */
   let countryDetails = [];
   if (countries.status !== 404) {
-    countryDetails = countries
-      .slice(0, size)
-      .map(({ flags, name, capital, population, region }) => (
+    countryDetails = countries.map(
+      ({ flags, name, capital, population, region }) => (
         <article
           key={name.official}
           className={styled.article}
@@ -44,15 +42,16 @@ const Country = ({ countries }) => {
             <Facts title="Capital: " data={capital} />
           </section>
         </article>
-      ));
+      )
+    );
   } else {
     return (
       //TODO make 404 class
-      <h3 className={styled.empty}>
+      <div className={styled.empty}>
         <h1>Oops!</h1>
         Sorry! We couldn't find a country by that name. Maybe try searching for
         something else.
-      </h3>
+      </div>
     );
   }
 

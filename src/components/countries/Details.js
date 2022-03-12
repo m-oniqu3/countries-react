@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Facts from "./Facts";
 
 const Details = ({ countries }) => {
+  //extract the route parameter
   const { countryName } = useParams();
   const navigate = useNavigate();
   const nf = new Intl.NumberFormat("en-US");
@@ -11,15 +12,15 @@ const Details = ({ countries }) => {
   let lang = "";
   let money = "";
 
+  //checks the countries list to see if the name of the country the user clicked on matched any country in the list and push it to the nation array
   for (let place of countries) {
     if (place.name.official === countryName) {
       nation.push(place);
     }
   }
-  //TODO put the details with the span in its own component
-  //TODO add comments, format populations
+  //TODO add comments
   //TODO make responsive
-  //TODO add shadow to flag img
+
   const nationDetails = nation.map((country) => {
     for (let x of Object.values(country.languages)) {
       lang += x + " ";
@@ -30,17 +31,15 @@ const Details = ({ countries }) => {
     }
     return (
       <section className={styled.content} key={country.population}>
-        <button onClick={() => navigate(-1)}>Back</button>
-
-        <article>
-          <figure>
-            <img
-              src={country.flags.png}
-              alt={`Flag of ${country.name.official}`}
-            />
-          </figure>
-          <section className={styled.info}>
-            <h3>{country.name.official}</h3>
+        <figure>
+          <img
+            src={country.flags.png}
+            alt={`Flag of ${country.name.official}`}
+          />
+        </figure>
+        <section className={styled.info}>
+          <h3>{country.name.official}</h3>
+          <div className={styled.detailsgroup}>
             <div className={styled.details}>
               <Facts title="Native Name: " data={country.name.common} />
               <Facts
@@ -57,29 +56,30 @@ const Details = ({ countries }) => {
               <Facts title="Currencies: " data={money} />
               <Facts title="Languages: " data={lang} />
             </div>
+          </div>
 
+          <>
+            <h5 className={styled.borders}>Border Countries:</h5>
             <>
-              <h5 className={styled.borders}>Border Countries:</h5>
-              <>
-                {country.borders ? (
-                  country.borders.map((border) => {
-                    return (
-                      <button className={styled.borderbtn}>{border} </button>
-                    );
-                  })
-                ) : (
-                  <p> None known.</p>
-                )}
-              </>
+              {country.borders ? (
+                country.borders.map((border) => {
+                  return (
+                    <button className={styled.borderbtn}>{border} </button>
+                  );
+                })
+              ) : (
+                <p> None known.</p>
+              )}
             </>
-          </section>
-        </article>
+          </>
+        </section>
       </section>
     );
   });
   return (
-    <section className="container my-5">
-      {nation !== [] && nationDetails}
+    <section className="container my-5 ">
+      <button onClick={() => navigate(-1)}>Back</button>
+      <>{nation !== [] && nationDetails}</>
     </section>
   );
 };

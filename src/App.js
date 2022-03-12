@@ -32,18 +32,20 @@ function App() {
           path="/"
           exact
           element={
-            <>
-              <section className="container">
-                {/* send the search term it got from the search component to the app component */}
-                <Input sendSearchTerm={sendSearchTerm} />
+            <section className="container">
+              {/* send the search term it got from the search component to the app component */}
+              <Input sendSearchTerm={sendSearchTerm} />
 
-                {/* accepts the data from the app component */}
-                <CountriesList listOfCountries={countryList} />
-              </section>
-            </>
+              {/* accepts the data from the app component */}
+              <CountriesList listOfCountries={countryList} />
+            </section>
           }
         />
+        {/**accepts url parameter
+ * accepts the list of countries from the app component(sent from the results component)
 
+
+ */}
         <Route
           path="/details/:countryName"
           exact
