@@ -1,0 +1,40 @@
+.content {
+  margin: 0 auto;
+  width: 90%;
+}
+
+.info {
+  font-size: 0.875rem;
+}
+
+.info span {
+  font-weight: 600;
+}
+
+.details {
+  margin: 1rem 0;
+}
+
+h3 {
+  font-weight: 800;
+}
+
+button {
+  padding: 0.3rem 1.5rem;
+  margin: 2rem 0;
+  border: none;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
+  cursor: pointer;
+}
+
+.borders {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.borderbtn {
+  margin: 0;
+  margin-right: 1rem;
+}
