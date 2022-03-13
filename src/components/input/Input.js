@@ -3,7 +3,7 @@ import styled from "./Input.module.css";
 import Dropdown from "./Dropdown";
 import Search from "./Search";
 
-const Input = ({ sendSearchTerm, sendContinent }) => {
+const Input = ({ sendSearchTerm, sendSelectedContinent }) => {
   //State
   const [input, setInput] = useState("");
   const [continent, setContinent] = useState("All");
@@ -16,8 +16,8 @@ const Input = ({ sendSearchTerm, sendContinent }) => {
 
   const getContinent = (data) => {
     setContinent(data);
+    sendSelectedContinent(continent);
   };
-  console.log(continent);
 
   return (
     <section className={styled.wrapper}>

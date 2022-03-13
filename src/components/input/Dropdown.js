@@ -12,7 +12,6 @@ const Dropdown = ({ sendContinent }) => {
     sendContinent(region);
   }, [sendContinent, region]);
 
-  console.log(region);
   return (
     <section className={styled.dropdown}>
       <select onChange={handleRegion} value={region} className={styled.menu}>

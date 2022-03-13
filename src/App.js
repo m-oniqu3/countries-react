@@ -5,6 +5,7 @@ import CountriesList from "./components/countries/CountriesList";
 import Details from "./components/countries/Details";
 import Header from "./components/head/Header";
 import Input from "./components/input/Input";
+import RegionRequest from "./components/request/RegionRequest";
 import Request from "./components/request/Request";
 import SearchRequest from "./components/request/SearchRequest";
 
@@ -12,7 +13,7 @@ function App() {
   //State
   const [countryList, setCountryList] = useState([]);
   const [search, setSearch] = useState("");
-  //const [selectedRegion, setSelectedRegion] = useState("");
+  const [selectedRegion, setSelectedRegion] = useState("All");
 
   //Sets the state with the data received from the request component
   const sendResults = (data) => setCountryList(data);
@@ -23,6 +24,14 @@ function App() {
   };
   //Sets the state with data from the searchResults component
   const sendUserResults = (data) => {
+    setCountryList(data);
+  };
+
+  const sendSelectedContinent = (data) => {
+    setSelectedRegion(data);
+  };
+
+  const sendFilteredData = (data) => {
     setCountryList(data);
   };
 
@@ -39,6 +48,12 @@ function App() {
        * sends the fetched data to the app component
        */}
       <SearchRequest search={search} sendUserResults={sendUserResults} />
+
+      <RegionRequest
+        selectedRegion={selectedRegion}
+        allCountries={countryList}
+        sendFilteredData={sendFilteredData}
+      />
       <Routes>
         <Route
           path="/"
@@ -46,7 +61,10 @@ function App() {
           element={
             <section className="container">
               {/* send the search term it got from the search component to the app component */}
-              <Input sendSearchTerm={sendSearchTerm} />
+              <Input
+                sendSearchTerm={sendSearchTerm}
+                sendSelectedContinent={sendSelectedContinent}
+              />
 
               {/* accepts the data from the app component */}
 
