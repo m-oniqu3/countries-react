@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "./Input.module.css";
 import Dropdown from "./Dropdown";
 import Search from "./Search";
 
-const Input = ({ sendSearchTerm }) => {
+const Input = ({ sendSearchTerm, sendContinent }) => {
   //State
   const [input, setInput] = useState("");
 
