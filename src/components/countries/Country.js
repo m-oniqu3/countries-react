@@ -5,7 +5,6 @@ import Facts from "./Facts";
 
 const Country = ({ countries }) => {
   const navigate = useNavigate();
-  console.log(countries);
 
   /** navigating to the details page for the country the user clicked on  */
   const moreInfo = (name) => {

@@ -18,8 +18,6 @@ const Details = ({ countries }) => {
       nation.push(place);
     }
   }
-  //TODO add comments
-  //TODO make responsive
 
   const nationDetails = nation.map((country) => {
     for (let x of Object.values(country.languages)) {
