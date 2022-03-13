@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "./Dropdown.module.css";
 
-const Dropdown = () => {
-  const [region, setRegion] = useState("");
+const Dropdown = ({ sendContinent }) => {
+  const [region, setRegion] = useState("All");
 
   const handleRegion = (e) => {
     setRegion(e.target.value);
   };
 
+  useEffect(() => {
+    sendContinent(region);
+  }, [sendContinent, region]);
+
+  console.log(region);
   return (
     <section className={styled.dropdown}>
       <select onChange={handleRegion} value={region} className={styled.menu}>
