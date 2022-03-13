@@ -32,7 +32,6 @@ const SearchRequest = ({ search, sendUserResults }) => {
 
   /**
    * if there is a user input and there are results, send it to the app component
-   * if there is no user input and results for all the countries is not empty send it to the app component
    * this determines what the countriesList/country component will display
    */
 

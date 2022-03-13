@@ -3,7 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import CountriesList from "./components/countries/CountriesList";
 import Details from "./components/countries/Details";
-import Filter from "./components/countries/Filter";
 import Header from "./components/head/Header";
 import Input from "./components/input/Input";
 import Request from "./components/request/Request";
@@ -22,7 +21,7 @@ function App() {
   const sendSearchTerm = (term) => {
     setSearch(term);
   };
-
+  //Sets the state with data from the searchResults component
   const sendUserResults = (data) => {
     setCountryList(data);
   };
@@ -30,11 +29,15 @@ function App() {
   return (
     <section>
       <Header />
-      {/**send the fetched data to the app component
+      {/*
+       *send the fetched data to the app component
        * accept the search term from the app component
        */}
       <Request sendResults={sendResults} search={search} />
-
+      {/**
+       * accepts the search state from the app component
+       * sends the fetched data to the app component
+       */}
       <SearchRequest search={search} sendUserResults={sendUserResults} />
       <Routes>
         <Route
