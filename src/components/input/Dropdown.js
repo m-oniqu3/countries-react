@@ -4,10 +4,12 @@ import styled from "./Dropdown.module.css";
 const Dropdown = ({ sendContinent }) => {
   const [region, setRegion] = useState("All");
 
+  //Set the state with the value the user clicked
   const handleRegion = (e) => {
     setRegion(e.target.value);
   };
 
+  //Send the region to the parent component everytime the data changes
   useEffect(() => {
     sendContinent(region);
   }, [sendContinent, region]);
