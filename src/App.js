@@ -7,11 +7,11 @@ import Filter from "./components/countries/Filter";
 import Header from "./components/head/Header";
 import Input from "./components/input/Input";
 import Request from "./components/request/Request";
+import SearchRequest from "./components/request/SearchRequest";
 
 function App() {
   //State
   const [countryList, setCountryList] = useState([]);
-  const [filtered, setFiltered] = useState([]);
   const [search, setSearch] = useState("");
   //const [selectedRegion, setSelectedRegion] = useState("");
 
@@ -23,25 +23,8 @@ function App() {
     setSearch(term);
   };
 
-  /**
- *   //delete the selcted note and update the state
-  const deleteNoteHandler = (note) => {
-    setReceivedNote(receivedNote.filter((orignalNote) => orignalNote !== note));
-    localStorage.removeItem(note);
-  };
-
- */
-  let list = [];
-  const filterContinent = (continent) => {
-    console.log(continent);
-    list = countryList.filter((country) => {
-      return country.region === continent;
-    });
-    setFiltered(list);
-    setCountryList([...list]);
-    console.log(filtered);
-    console.log(list);
-    return list;
+  const sendUserResults = (data) => {
+    setCountryList(data);
   };
 
   return (
@@ -51,6 +34,8 @@ function App() {
        * accept the search term from the app component
        */}
       <Request sendResults={sendResults} search={search} />
+
+      <SearchRequest search={search} sendUserResults={sendUserResults} />
       <Routes>
         <Route
           path="/"
@@ -58,10 +43,7 @@ function App() {
           element={
             <section className="container">
               {/* send the search term it got from the search component to the app component */}
-              <Input
-                sendSearchTerm={sendSearchTerm}
-                sendContinent={filterContinent}
-              />
+              <Input sendSearchTerm={sendSearchTerm} />
 
               {/* accepts the data from the app component */}
 
@@ -77,8 +59,6 @@ function App() {
           exact
           element={<Details countries={countryList} />}
         />
-
-        <Route path="/filter/:continent" exact element={<Filter />} />
       </Routes>
     </section>
   );
